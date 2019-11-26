@@ -1,7 +1,7 @@
 resource "azurerm_network_interface" "front" {
   name                = "${terraform.workspace}-front-nic"
-  location            = "${azurerm_resource_group.default.location}"
-  resource_group_name = "${azurerm_resource_group.default.name}"
+  location            = "${var.resource_group.location}"
+  resource_group_name = "${var.resource_group.name}"
   network_security_group_id = "${azurerm_network_security_group.front.id}"
 
 
@@ -15,8 +15,8 @@ resource "azurerm_network_interface" "front" {
 
 resource "azurerm_network_interface" "back" {
   name                = "${terraform.workspace}-back-nic"
-  location            = "${azurerm_resource_group.default.location}"
-  resource_group_name = "${azurerm_resource_group.default.name}"
+  location            = "${var.resource_group.location}"
+  resource_group_name = "${var.resource_group.name}"
   network_security_group_id = "${azurerm_network_security_group.back.id}"
 
 
@@ -29,8 +29,8 @@ resource "azurerm_network_interface" "back" {
 
 resource "azurerm_network_interface" "manage" {
   name                = "${terraform.workspace}-manage-nic"
-  location            = "${azurerm_resource_group.default.location}"
-  resource_group_name = "${azurerm_resource_group.default.name}"
+  location            = "${var.resource_group.location}"
+  resource_group_name = "${var.resource_group.name}"
   network_security_group_id = "${azurerm_network_security_group.manage.id}"
 
 
@@ -44,8 +44,8 @@ resource "azurerm_network_interface" "manage" {
 
 resource "azurerm_network_interface" "data" {
   name                = "${terraform.workspace}-data-nic"
-  location            = "${azurerm_resource_group.default.location}"
-  resource_group_name = "${azurerm_resource_group.default.name}"
+  location            = "${var.resource_group.location}"
+  resource_group_name = "${var.resource_group.name}"
   network_security_group_id = "${azurerm_network_security_group.data.id}"
 
 

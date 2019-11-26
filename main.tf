@@ -11,4 +11,5 @@ provider "azurerm" {
 }
 module "nginx" {
   source = "./modules/nginx"
+  resource_group = azurerm_resource_group.default
 }

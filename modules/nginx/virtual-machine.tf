@@ -1,7 +1,7 @@
 resource "azurerm_virtual_machine" "front" {
   name                  = "${terraform.workspace}-front-vm"
-  location              = "${azurerm_resource_group.default.location}"
-  resource_group_name   = "${azurerm_resource_group.default.name}"
+  location              = "${var.resource_group.location}"
+  resource_group_name   = "${var.resource_group.name}"
   network_interface_ids = ["${azurerm_network_interface.front.id}"]
   vm_size               = "Standard_B1s"
 
@@ -48,8 +48,8 @@ resource "azurerm_virtual_machine" "front" {
 
 resource "azurerm_virtual_machine" "back" {
   name                  = "${terraform.workspace}-back-vm"
-  location              = "${azurerm_resource_group.default.location}"
-  resource_group_name   = "${azurerm_resource_group.default.name}"
+  location              = "${var.resource_group.location}"
+  resource_group_name   = "${var.resource_group.name}"
   network_interface_ids = ["${azurerm_network_interface.back.id}"]
   vm_size               = "Standard_B1s"
 
@@ -84,8 +84,8 @@ resource "azurerm_virtual_machine" "back" {
 
 resource "azurerm_virtual_machine" "manage" {
   name                  = "${terraform.workspace}-manage-vm"
-  location              = "${azurerm_resource_group.default.location}"
-  resource_group_name   = "${azurerm_resource_group.default.name}"
+  location              = "${var.resource_group.location}"
+  resource_group_name   = "${var.resource_group.name}"
   network_interface_ids = ["${azurerm_network_interface.manage.id}"]
   vm_size               = "Standard_B1s"
 
@@ -132,8 +132,8 @@ resource "azurerm_virtual_machine" "manage" {
 
 resource "azurerm_virtual_machine" "data" {
   name                  = "${terraform.workspace}-data-vm"
-  location              = "${azurerm_resource_group.default.location}"
-  resource_group_name   = "${azurerm_resource_group.default.name}"
+  location              = "${var.resource_group.location}"
+  resource_group_name   = "${var.resource_group.name}"
   network_interface_ids = ["${azurerm_network_interface.data.id}"]
   vm_size               = "Standard_B1s"
 
